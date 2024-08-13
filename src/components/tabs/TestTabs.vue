@@ -16,9 +16,13 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/ui/tabs'
-import {ref} from "vue";
+import { ref, watch } from "vue";
 
 const tab = ref('account')
+
+watch(tab, (value) => {
+  console.log('tab value', value)
+})
 </script>
 
 <template>
@@ -31,7 +35,7 @@ const tab = ref('account')
         Password
       </TabsTrigger>
     </TabsList>
-    <TabsContent value="account">
+    <TabsContent value="account" vitest="account-panel">
       <Card>
         <CardHeader>
           <CardTitle>Account</CardTitle>
@@ -54,7 +58,7 @@ const tab = ref('account')
         </CardFooter>
       </Card>
     </TabsContent>
-    <TabsContent value="password">
+    <TabsContent value="password" vitest="password-panel">
       <Card>
         <CardHeader>
           <CardTitle>Password</CardTitle>
