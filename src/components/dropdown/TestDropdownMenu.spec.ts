@@ -8,6 +8,7 @@ describe('TestDropdownMenu', () => {
     const wrapper = mount(TestDropdownMenu, { attachTo: document.body })
     await wrapper.find('[vitest="dropdown-trigger"]').trigger('click')
     console.log('wrapper.html()', wrapper.html())
+    expect(wrapper.find('[vitest="dropdown-trigger"]').attributes()['data-state']).toEqual('open')
     expect(wrapper.find('[role="menu"]').attributes()['data-state']).toEqual('open')
   })
 })
